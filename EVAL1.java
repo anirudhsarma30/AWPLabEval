@@ -117,6 +117,45 @@ public class CarRental
 	}
 	public static void main(String[] args)
 	{
-		//MAIN FUNCTION CODE.
+		Customer[] userList = new Customer[10];
+		userList[0] = new Customer("Praneeth","8989898989","praneeth@gmail.com",19,"praneeth1441","password1");
+		userList[1] = new Customer("Anirudh","8989898987","anirudh@gmail.com",18,"sarma30","maccBookPro");
+		userList[2] = new Customer("Rahul","8989898986","rahul@gmail.com",19,"rahul87","asusZenfone");
+		int userCount = 3;
+		Scanner sc = new Scanner(System.in);
+		//Registration.
+		System.out.println("WELCOME TO CAR RENTAL!!!!!");
+		System.out.println("Would you like to:");
+		System.out.println("1) LOGIN");
+		System.out.println("2) REGISTER AS NEW USER");
+		int registrationChoice = 0;
+		System.out.print("Your choice: ");
+		registrationChoice = Integer.parseInt(sc.nextLine());
+		Customer c;
+		if(registrationChoice == 1)
+		{
+			String uname;
+			String upassword;
+			System.out.print("Enter your Username: ");
+			uname = sc.nextLine();
+			System.out.print("Enter your Password: ");
+			upassword = sc.nextLine();
+			for(int i =0;i<userCount;i++)
+			{
+				if(userList[i].username.equals(uname)&&userList[i].password.equals(upassword))
+				{
+					c = userList[i];
+					System.out.println("You have succesfully logged in.");
+					System.out.println("Your details are:");
+					c.printDetails();
+				}
+			}
+		}
+		else if(registrationChoice==2)
+		{
+			String uname;
+			String upassword;
+		}
 	}
+}
 }
