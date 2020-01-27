@@ -96,3 +96,18 @@ class Location
 	String name;
 	
 }
+public Class CarRental
+{
+	static Car[] car_list_Economy={new Car("MH05DO1017",".....","........"),//manufacturer,model
+	new Car("MH08GO1018",".....","........"),
+	new Car("MH05JO0067",".....","......"),
+	new Car("MH75HO1019","......","......")};
+	static Car[] car_list_Sedan={new Car("MH05DO1055","......","..."),
+	new Car("MH05JO1010",".....","...."),
+	new Car("MH69JK9999","...y","...."),
+	new Car("MH27AA8889","...","...")};
+	static Car[] car_list_SUV={new Car("MH85DO10543","...","...."),
+	new Car("MH05JO1011",".......","......"),
+	new Car("MH99AO0097","..........","......."),
+	new Car("MH12SO1019",".........","....")};
+}
