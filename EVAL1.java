@@ -12,9 +12,12 @@ class Car
 	String company;
 	String model;
 	String Type;
-	Car(String number, String manufacturer, String MODEL, String type)
+	Car(String number, String manufacturer, String mODEL, String type)
 	{
-		//Write your code here.
+		plateNumber=number;
+		company=manufacturer;
+		model=mODEL;
+		Type=type;
 	}
 }
 class Driver implements Person
@@ -26,9 +29,14 @@ class Driver implements Person
 	String licenseNumber;
 	Car C;
 	
-	Driver(String Name, String phone, String email, int age, String lNumber, Car dcar)
+	Driver(String t_name, String t_phone, String t_email, int t_age, String lNumber, Car dcar)
 	{
-		//Write your code here
+		name=t_name;
+		phone=t_phone;
+		email=t_email;
+		age=t_age;
+		licenseNumber=lNumber;
+		C=dcar;
 	}
 	public String getName()
 	{
@@ -54,11 +62,16 @@ class Customer implements Person
 	String phone;
 	String email;
 	int age;
-	String Username;
-	String Password;
-	Customer(String Name, String Phone, String Email, int age, String Username, String Password)
+	String username;
+	String password;
+	Customer(String t_name, String t_phone, String t_email, int t_age, String t_Username, String t_Password)
 	{
-		//Write your code here.
+		name=t_name;
+		phone=t_phone;
+		email=t_email;
+		age=t_age;
+		username=t_Username;
+		password=t_Password;
 	}
 	public String getName()
 	{
@@ -81,8 +94,5 @@ class Customer implements Person
 class Location
 {
 	String name;
-	ArrayList<Car> SUV = new ArrayList<Car>();
-	ArrayList<Car> Sedan = new ArrayList<Car>();
-	ArrayList<Car> Hatchback = new ArrayList<Car>();
-	ArrayList<Car> Van = new ArrayList<Car>();
+	
 }
