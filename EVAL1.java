@@ -98,16 +98,16 @@ class Location
 }
 public Class CarRental
 {
-	static Car[] car_list_Economy={new Car("MH05DO1017","Toyota","Toyota Etios"),
-	new Car("MH08GO1018","Tata","Tata Indica"),
-	new Car("MH05JO0067","Maruti","Maruti Suzuki Ritz"),
-	new Car("MH75HO1019","Maruti","Suzuki Wagon R")};
-	static Car[] car_list_Sedan={new Car("MH05DO1055","Toyota","Toyota Prius"),
-	new Car("MH05JO1010","Chevrolet","Chevrolet Suburban"),
-	new Car("MH69JK9999","Toyota","Toyota Camry"),
-	new Car("MH27AA8889","Honda","Honda Civic")};
-	static Car[] car_list_SUV={new Car("MH85DO10543","Hyundai","Hyundai Venue"),
-	new Car("MH05JO1011","Maruti","Maruti Vitara Brezza"),
-	new Car("MH99AO0097","Toyota","Toyota Fortuner"),
-	new Car("MH12SO1019","mahindra","Mahindra TUV300")};
+	static Car[] car_list_Economy={new Car("MH05DO1017","Toyota","Etios"),
+	new Car("MH08GO1018","Tata","Indica"),
+	new Car("MH05JO0067","Maruti Suzuki","Ritz"),
+	new Car("MH75HO1019","Maruti Zuzuki","WagonR")};
+	static Car[] car_list_Sedan={new Car("MH05DO1055","Toyota","Prius"),
+	new Car("MH05JO1010","Chevrolet","Suburban"),
+	new Car("MH69JK9999","Toyota","Camry"),
+	new Car("MH27AA8889","Honda","Civic")};
+	static Car[] car_list_SUV={new Car("MH85DO10543","Hyundai","Venue"),
+	new Car("MH05JO1011","Maruti","Brezza"),
+	new Car("MH99AO0097","Toyota","Fortuner"),
+	new Car("MH12SO1019","Mahindra","TUV300")};
 }
