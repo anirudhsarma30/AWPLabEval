@@ -11,7 +11,7 @@ class Car
 	String plateNumber;
 	String company;
 	String model;
-	boolean Fear=TRUE;
+	boolean Free=true;
 	Car(String number, String manufacturer, String mODEL)
 	{
 		plateNumber=number;
@@ -20,8 +20,8 @@ class Car
 	}
 	void printoutcardetails()
 	{
-		System.out.println("CAR DETAILS:");
-		System.out.println("Car no:"+plateNumber);
+		System.out.println("CAR DETAILS: ");
+		System.out.println("Car no: "+plateNumber);
 		System.out.println(company+" "+model);
 	}
 }
@@ -32,7 +32,7 @@ class Driver implements Person
 	String email;
 	int age;
 	String licenseNumber;
-	boolean Free=FALSE;
+	boolean Free=true;
 	
 	Driver(String t_name, String t_phone, String t_email, int t_age, String lNumber)
 	{
@@ -61,9 +61,9 @@ class Driver implements Person
 	void printoutDriverdetails()
 	{
 		System.out.println("DRIVER DETAILS:");
-		System.out.println("name");
-		System.out.println("licenseNumber:"+licenseNumber);
-		System.out.println("phone no:"+phone);
+		System.out.println("name: "+name);
+		System.out.println("licenseNumber: "+licenseNumber);
+		System.out.println("phone no: "+phone);
 	}
 }
 
