@@ -64,6 +64,7 @@ class Customer implements Person
 	int age;
 	String username;
 	String password;
+	Customer(){}
 	Customer(String t_name, String t_phone, String t_email, int t_age, String t_Username, String t_Password)
 	{
 		name=t_name;
@@ -89,6 +90,13 @@ class Customer implements Person
 	{
 		return age;
 	}
+	void printDetails()
+	{
+		System.out.println("NAME: "+name);
+		System.out.println("PHONE: "+phone);
+		System.out.println("EMAIL: "+email);
+		System.out.println("AGE: "+age);
+	}
 }
 
 class Location
@@ -106,6 +114,143 @@ class Location
 	}
 }
 
+class Registration
+{
+	Customer Login(Customer userList[], int userCount)
+	{
+		boolean run = true;
+		Customer c = new Customer();
+		Scanner sc = new Scanner(System.in);
+		while(run)
+		{
+			
+			String uname;
+			String upassword;
+			System.out.print("Enter your Username: ");
+			uname = sc.nextLine();
+			System.out.print("Enter your Password: ");
+			upassword = sc.nextLine();
+			boolean found = false;
+			
+			for(int i =0;i<userCount;i++)
+			{
+				if(userList[i].username.equals(uname)&&userList[i].password.equals(upassword))
+				{
+					c = userList[i];
+					found = true;
+					run = false;
+					System.out.println("You have succesfully logged in.");
+				}
+			}
+			if(!found)
+			{
+				
+				System.out.println("The Username and Password you have entered are wrong.");
+				System.out.println("TRY AGAIN.");
+			}
+			
+		}
+		sc.close();
+		return c;
+	}
+	
+	Customer newregister()
+	{
+		Customer c = new Customer();
+		Scanner sc = new Scanner(System.in);
+		String uNAME="";
+		String uname="";
+		String upassword="";
+		int uage = 0;
+		String uemail="";
+		String uphone="";
+		System.out.println("Enter the following details:");
+		boolean flag = true;
+		while(flag) 
+		{
+			System.out.println("NAME: ");
+			uNAME = uNAME+sc.nextLine();
+			if(uNAME.equals(""))
+			{
+				System.out.println("Do not leave the name field blank.");
+			}
+			else {flag=false;}
+		}
+		flag = true;
+		
+		while(flag) 
+		{
+			System.out.println("EMAIL: ");
+			uemail = uemail+sc.nextLine();
+			if(uemail.equals(""))
+			{
+				System.out.println("Do not leave the email field blank.");
+			}
+			else {flag=false;}
+		}
+		flag = true;
+		
+		while(flag) 
+		{
+			System.out.println("PHONE NUMBER: ");
+			uphone = uphone+sc.nextLine();
+			if(uphone.equals(""))
+			{
+				System.out.println("Do not leave the phone number field blank.");
+			}
+			else {flag=false;}
+		}
+		flag = true;
+		
+		
+		while(flag) 
+		{
+			System.out.println("AGE: ");
+			uage = Integer.parseInt(sc.nextLine());
+			if(uage<=0)
+			{
+				System.out.println("Enter a valid age.");
+			}
+			else {flag=false;}
+		}
+		flag = true;
+		
+		while(flag) 
+		{
+			System.out.println("USERNAME: ");
+			uname = uname+sc.nextLine();
+			if(uname.equals(""))
+			{
+				System.out.println("Do not leave the username field blank.");
+			}
+			else {flag=false;}
+		}
+		flag = true;
+		
+		while(flag) 
+		{
+			System.out.println("PASSWORD: ");
+			upassword = upassword+sc.nextLine();
+			String upasswordCheck;
+			System.out.println("Re-enter the password: ");
+			upasswordCheck = sc.nextLine();
+			if(!upassword.equals(upasswordCheck))
+			{
+				System.out.println("Enter the password again. Make sure you match both the fields.");
+			}
+			else {flag=false;}
+		}
+		flag = true;
+		
+		System.out.println("YOU HAVE SUCCESSFULLY REGISTERED!!");
+		c = new Customer(uNAME, uphone, uemail, uage, uname, upassword);
+		sc.close();
+		return c;
+	}
+	
+	
+}
+
 public class CarRental
 {
 	static Location[] locations = {new Location("VNIT", 0),new Location("Ajni Station", 1), new Location("Eternity Mall", 2), new Location("Empress Mall", 3), new Location("INOX Jaswant Tuli", 4)}; 
@@ -115,6 +260,7 @@ public class CarRental
 		final int perKM = 25;
 		return (perKM*distances[one.number][two.number]);
 	}
+	
 	public static void main(String[] args)
 	{
 		Customer[] userList = new Customer[10];
@@ -131,31 +277,23 @@ public class CarRental
 		int registrationChoice = 0;
 		System.out.print("Your choice: ");
 		registrationChoice = Integer.parseInt(sc.nextLine());
-		Customer c;
+		Customer currentCustomer = new Customer();
+		Registration r = new Registration();
 		if(registrationChoice == 1)
 		{
-			String uname;
-			String upassword;
-			System.out.print("Enter your Username: ");
-			uname = sc.nextLine();
-			System.out.print("Enter your Password: ");
-			upassword = sc.nextLine();
-			for(int i =0;i<userCount;i++)
-			{
-				if(userList[i].username.equals(uname)&&userList[i].password.equals(upassword))
-				{
-					c = userList[i];
-					System.out.println("You have succesfully logged in.");
-					System.out.println("Your details are:");
-					c.printDetails();
-				}
-			}
+			currentCustomer = r.Login(userList, userCount);
+			currentCustomer.printDetails();
 		}
+		
 		else if(registrationChoice==2)
 		{
-			String uname;
-			String upassword;
+			currentCustomer = r.newregister();
+			userList[userCount] = currentCustomer;
+			userCount++;
 		}
+		
+		//AFTER LOGIN.
+		
+		
 	}
-}
 }
