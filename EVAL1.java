@@ -11,13 +11,11 @@ class Car
 	String plateNumber;
 	String company;
 	String model;
-	String Type;
-	Car(String number, String manufacturer, String mODEL, String type)
+	Car(String number, String manufacturer, String mODEL)
 	{
 		plateNumber=number;
 		company=manufacturer;
 		model=mODEL;
-		Type=type;
 	}
 }
 class Driver implements Person
@@ -249,6 +247,7 @@ class Registration
 	}
 	
 	
+	
 }
 
 public class CarRental
@@ -260,7 +259,18 @@ public class CarRental
 		final int perKM = 25;
 		return (perKM*distances[one.number][two.number]);
 	}
-	
+	static Car[] car_list_Economy={new Car("MH05DO1017","Toyota","Etios"),
+			new Car("MH08GO1018","Tata","Indica"),
+			new Car("MH05JO0067","Maruti Suzuki","Ritz"),
+			new Car("MH75HO1019","Maruti Zuzuki","WagonR")};
+	static Car[] car_list_Sedan={new Car("MH05DO1055","Toyota","Prius"),
+			new Car("MH05JO1010","Chevrolet","Suburban"),
+			new Car("MH69JK9999","Toyota","Camry"),
+			new Car("MH27AA8889","Honda","Civic")};
+	static Car[] car_list_SUV={new Car("MH85DO10543","Hyundai","Venue"),
+			new Car("MH05JO1011","Maruti","Brezza"),
+			new Car("MH99AO0097","Toyota","Fortuner"),
+			new Car("MH12SO1019","Mahindra","TUV300")};
 	public static void main(String[] args)
 	{
 		Customer[] userList = new Customer[10];
