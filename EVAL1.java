@@ -11,6 +11,7 @@ class Car
 	String plateNumber;
 	String company;
 	String model;
+	boolean Fear=TRUE;
 	Car(String number, String manufacturer, String mODEL)
 	{
 		plateNumber=number;
@@ -31,16 +32,15 @@ class Driver implements Person
 	String email;
 	int age;
 	String licenseNumber;
-	Car C;
+	boolean Free=FALSE;
 	
-	Driver(String t_name, String t_phone, String t_email, int t_age, String lNumber, Car dcar)
+	Driver(String t_name, String t_phone, String t_email, int t_age, String lNumber)
 	{
 		name=t_name;
 		phone=t_phone;
 		email=t_email;
 		age=t_age;
 		licenseNumber=lNumber;
-		C=dcar;
 	}
 	public String getName()
 	{
@@ -57,6 +57,13 @@ class Driver implements Person
 	public int getAge()
 	{
 		return age;
+	}
+	void printoutDriverdetails()
+	{
+		System.out.println("DRIVER DETAILS:");
+		System.out.println("name");
+		System.out.println("licenseNumber:"+licenseNumber);
+		System.out.println("phone no:"+phone);
 	}
 }
 
@@ -279,6 +286,10 @@ public class CarRental
 			new Car("MH12SO1019","Mahindra","TUV300")};
 	public static void main(String[] args)
 	{
+		Driver[] driverList= new Driver[10];
+		driverList[0]=new Driver("Rajulu","9823467543","rajulu@gmail.com","31","MH1420110062821");
+		driverList[1]=new Driver("vishal","9555895412","vishal123@gmail.com","28","AH1487654562821");
+		driverList[2]=new Driver("chandrakanth","9821389400","chandu9876@gmail.com","41","KL7656789821");
 		Customer[] userList = new Customer[10];
 		userList[0] = new Customer("Praneeth","8989898989","praneeth@gmail.com",19,"praneeth1441","password1");
 		userList[1] = new Customer("Anirudh","8989898987","anirudh@gmail.com",18,"sarma30","maccBookPro");
