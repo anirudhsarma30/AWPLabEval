@@ -11,11 +11,19 @@ class Car
 	String plateNumber;
 	String company;
 	String model;
+	boolean Free=true;
 	Car(String number, String manufacturer, String mODEL)
 	{
 		plateNumber=number;
 		company=manufacturer;
 		model=mODEL;
+
+	}
+	void printoutcardetails()
+	{
+		System.out.println("CAR DETAILS: ");
+		System.out.println("Car no: "+plateNumber);
+		System.out.println(company+" "+model);
 	}
 }
 class Driver implements Person
@@ -25,7 +33,7 @@ class Driver implements Person
 	String email;
 	int age;
 	String licenseNumber;
-	Car C;
+	boolean Free=true;
 	
 	Driver(String t_name, String t_phone, String t_email, int t_age, String lNumber)
 	{
@@ -50,6 +58,13 @@ class Driver implements Person
 	public int getAge()
 	{
 		return age;
+	}
+	void printoutDriverdetails()
+	{
+		System.out.println("DRIVER DETAILS:");
+		System.out.println("name: "+name);
+		System.out.println("licenseNumber: "+licenseNumber);
+		System.out.println("phone no: "+phone);
 	}
 }
 
@@ -111,6 +126,7 @@ class Location
 	}
 }
 
+
 class Price
 {
 	int basePrice = 40;
@@ -122,22 +138,27 @@ class Price
 		return (basePrice+(perKM*distances[one.number][two.number]));
 	}
 }
+
 class Registration
 {
 	Customer Login(Customer userList[], int userCount)
 	{
 		boolean run = true;
 		Customer c = new Customer();
-		Scanner s = new Scanner(System.in);
+
+		Scanner sc = new Scanner(System.in);
+
 		while(run)
 		{
 			
 			String uname;
 			String upassword;
 			System.out.print("Enter your Username: ");
-			uname = s.nextLine();
+
+			uname = sc.nextLine();
 			System.out.print("Enter your Password: ");
-			upassword = s.nextLine();
+			upassword = sc.nextLine();
+
 			boolean found = false;
 			
 			for(int i =0;i<userCount;i++)
@@ -158,6 +179,7 @@ class Registration
 			}
 			
 		}
+
 		return c;
 	}
 	
@@ -251,6 +273,7 @@ class Registration
 		
 		System.out.println("YOU HAVE SUCCESSFULLY REGISTERED!!");
 		c = new Customer(uNAME, uphone, uemail, uage, uname, upassword);
+
 		return c;
 	}
 	
@@ -344,5 +367,70 @@ public class CarRental
 		int vehicleTypeChoice = Integer.parseInt(sc.nextLine());
 		
 	}
+
 	
+	
+	
+}
+
+public class CarRental
+{
+	static Location[] locations = {new Location("VNIT", 0),new Location("Ajni Station", 1), new Location("Eternity Mall", 2), new Location("Empress Mall", 3), new Location("INOX Jaswant Tuli", 4)}; 
+	static double[][] distances = {{0,5,4.6,6.5,6.3},{5,0,3.8,3.3,7.7},{4.6,3.8,0,2.4,6.2},{6.5,3.3,2.4,0,4.8},{6.3,7.7,6.2,4.8,0}};
+	static double getPrice(Location one, Location two)
+	{
+		final int perKM = 25;
+		return (perKM*distances[one.number][two.number]);
+	}
+	static Car[] car_list_Economy={new Car("MH05DO1017","Toyota","Etios"),
+			new Car("MH08GO1018","Tata","Indica"),
+			new Car("MH05JO0067","Maruti Suzuki","Ritz"),
+			new Car("MH75HO1019","Maruti Zuzuki","WagonR")};
+	static Car[] car_list_Sedan={new Car("MH05DO1055","Toyota","Prius"),
+			new Car("MH05JO1010","Chevrolet","Suburban"),
+			new Car("MH69JK9999","Toyota","Camry"),
+			new Car("MH27AA8889","Honda","Civic")};
+	static Car[] car_list_SUV={new Car("MH85DO10543","Hyundai","Venue"),
+			new Car("MH05JO1011","Maruti","Brezza"),
+			new Car("MH99AO0097","Toyota","Fortuner"),
+			new Car("MH12SO1019","Mahindra","TUV300")};
+	public static void main(String[] args)
+	{
+		Driver[] driverList= new Driver[10];
+		driverList[0]=new Driver("Rajulu","9823467543","rajulu@gmail.com","31","MH1420110062821");
+		driverList[1]=new Driver("vishal","9555895412","vishal123@gmail.com","28","AH1487654562821");
+		driverList[2]=new Driver("chandrakanth","9821389400","chandu9876@gmail.com","41","KL7656789821");
+		Customer[] userList = new Customer[10];
+		userList[0] = new Customer("Praneeth","8989898989","praneeth@gmail.com",19,"praneeth1441","password1");
+		userList[1] = new Customer("Anirudh","8989898987","anirudh@gmail.com",18,"sarma30","maccBookPro");
+		userList[2] = new Customer("Rahul","8989898986","rahul@gmail.com",19,"rahul87","asusZenfone");
+		int userCount = 3;
+		Scanner sc = new Scanner(System.in);
+		//Registration.
+		System.out.println("WELCOME TO CAR RENTAL!!!!!");
+		System.out.println("Would you like to:");
+		System.out.println("1) LOGIN");
+		System.out.println("2) REGISTER AS NEW USER");
+		int registrationChoice = 0;
+		System.out.print("Your choice: ");
+		registrationChoice = Integer.parseInt(sc.nextLine());
+		Customer currentCustomer = new Customer();
+		Registration r = new Registration();
+		if(registrationChoice == 1)
+		{
+			currentCustomer = r.Login(userList, userCount);
+			currentCustomer.printDetails();
+		}
+		
+		else if(registrationChoice==2)
+		{
+			currentCustomer = r.newregister();
+			userList[userCount] = currentCustomer;
+			userCount++;
+		}
+		
+		//AFTER LOGIN.
+		
+		
+	}
 }
