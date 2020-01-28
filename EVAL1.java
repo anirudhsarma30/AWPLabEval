@@ -261,8 +261,9 @@ class Registration
 public class CarRental
 {
 	static Location[] locations = {new Location("VNIT", 0),new Location("Ajni Station", 1), new Location("Eternity Mall", 2), new Location("Empress Mall", 3), new Location("INOX Jaswant Tuli", 4)}; 
-	
-	static Car[] car_list_Compact={new Car("MH05DO1017","Toyota","Etios"),
+
+	static Car[] car_list_Economy={new Car("MH05DO1017","Toyota","Etios"),
+
 			new Car("MH08GO1018","Tata","Indica"),
 			new Car("MH05JO0067","Maruti Suzuki","Ritz"),
 			new Car("MH75HO1019","Maruti Zuzuki","WagonR")};
@@ -274,7 +275,7 @@ public class CarRental
 			new Car("MH05JO1011","Maruti","Brezza"),
 			new Car("MH99AO0097","Toyota","Fortuner"),
 			new Car("MH12SO1019","Mahindra","TUV300")};
-	static final Scanner sc = new Scanner(System.in);
+
 	public static void main(String[] args)
 	{
 		Customer[] userList = new Customer[10];
