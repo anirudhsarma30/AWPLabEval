@@ -1,145 +1,5 @@
 import java.util.Scanner;
-
-interface Person
-{
-    String getName();
-
-    String getPhone();
-
-    String getEmail();
-
-    int getAge();
-}
-
-class Car
-{
-    private String plateNumber;
-    private String company;
-    private String model;
-    boolean Free = true;
-
-    Car()
-    {
-    }
-
-    Car(String number, String manufacturer, String mODEL)
-    {
-        plateNumber = number;
-        company = manufacturer;
-        model = mODEL;
-
-    }
-
-    void printoutcardetails()
-    {
-        System.out.println(company + " " + model);
-        System.out.println(plateNumber);
-    }
-
-    void printDuringSelection()
-    {
-        System.out.println(company + " " + model);
-    }
-}
-
-class Driver implements Person
-{
-    String name;
-    String phone;
-    String email;
-    int age;
-    String licenseNumber;
-    boolean Free = true;
-
-    Driver(String t_name, String t_phone, String t_email, int t_age, String lNumber)
-    {
-        name = t_name;
-        phone = t_phone;
-        email = t_email;
-        age = t_age;
-        licenseNumber = lNumber;
-    }
-
-    public String getName()
-    {
-        return name;
-    }
-
-    public String getPhone()
-    {
-        return phone;
-    }
-
-    public String getEmail()
-    {
-        return email;
-    }
-
-    public int getAge()
-    {
-        return age;
-    }
-
-    void printoutDriverdetails()
-    {
-        System.out.println("Your driver for this booking is");
-        System.out.println("Name: " + name);
-        System.out.println("License Number: " + licenseNumber);
-        System.out.println("Phone no: " + phone);
-    }
-}
-
-class Customer implements Person
-{
-    String name;
-    String phone;
-    String email;
-    int age;
-    String username;
-    String password;
-
-    Customer()
-    {
-    }
-
-    Customer(String t_name, String t_phone, String t_email, int t_age, String t_Username, String t_Password)
-    {
-        name = t_name;
-        phone = t_phone;
-        email = t_email;
-        age = t_age;
-        username = t_Username;
-        password = t_Password;
-    }
-
-    public String getName()
-    {
-        return name;
-    }
-
-    public String getPhone()
-    {
-        return phone;
-    }
-
-    public String getEmail()
-    {
-        return email;
-    }
-
-    public int getAge()
-    {
-        return age;
-    }
-
-    void printDetails()
-    {
-        System.out.println("NAME: " + name);
-        System.out.println("PHONE: " + phone);
-        System.out.println("EMAIL: " + email);
-        System.out.println("AGE: " + age);
-    }
-}
+import allObjects.*;
 
 class Location
 {
@@ -171,179 +31,7 @@ class Price
     }
 }
 
-class InvalidChoiceException extends Exception
-{
-    InvalidChoiceException(String s)
-    {
-        super(s);
-    }
-}
-
-class RegistrationChoiceException
-{
-    static void validate(int choice) throws InvalidChoiceException
-    {
-        if ((choice < 1) || (choice > 2))
-        {
-            throw new InvalidChoiceException("You did not enter a valid choice.");
-        }
-    }
-}
-
-class Registration
-{
-    Customer Login(Customer[] userList, int userCount)
-    {
-        boolean run = true;
-        Customer c = new Customer();
-
-        Scanner sc = new Scanner(System.in);
-
-        while (run)
-        {
-
-            String uname;
-            String upassword;
-            System.out.print("Enter your Username: ");
-
-            uname = sc.nextLine();
-            System.out.print("Enter your Password: ");
-            upassword = sc.nextLine();
-
-            boolean found = false;
-
-            for (int i = 0; i < userCount; i++)
-            {
-                if (userList[i].username.equals(uname) && userList[i].password.equals(upassword))
-                {
-                    c = userList[i];
-                    found = true;
-                    run = false;
-                    System.out.println("You have succesfully logged in.");
-                }
-            }
-            if (!found)
-            {
-
-                System.out.println("The Username and Password you have entered are wrong.");
-                System.out.println("TRY AGAIN.");
-            }
-
-        }
-
-        return c;
-    }
-
-    Customer newregister()
-    {
-        Customer c = new Customer();
-        Scanner sc = new Scanner(System.in);
-        String uNAME = "";
-        String uname = "";
-        String upassword = "";
-        int uage = 0;
-        String uemail = "";
-        String uphone = "";
-        System.out.println("Enter the following details:");
-        boolean flag = true;
-        while (flag)
-        {
-            System.out.println("NAME: ");
-            uNAME = uNAME + sc.nextLine();
-            if (uNAME.equals(""))
-            {
-                System.out.println("Do not leave the name field blank.");
-            } else
-            {
-                flag = false;
-            }
-        }
-        flag = true;
-
-        while (flag)
-        {
-            System.out.println("EMAIL: ");
-            uemail = uemail + sc.nextLine();
-            if (uemail.equals(""))
-            {
-                System.out.println("Do not leave the email field blank.");
-            } else
-            {
-                flag = false;
-            }
-        }
-        flag = true;
-
-        while (flag)
-        {
-            System.out.println("PHONE NUMBER: ");
-            uphone = uphone + sc.nextLine();
-            if (uphone.equals(""))
-            {
-                System.out.println("Do not leave the phone number field blank.");
-            } else
-            {
-                flag = false;
-            }
-        }
-        flag = true;
-
-
-        while (flag)
-        {
-            System.out.println("AGE: ");
-            uage = Integer.parseInt(sc.nextLine());
-            if (uage <= 0)
-            {
-                System.out.println("Enter a valid age.");
-            } else
-            {
-                flag = false;
-            }
-        }
-        flag = true;
-
-        while (flag)
-        {
-            System.out.println("USERNAME: ");
-            uname = uname + sc.nextLine();
-            if (uname.equals(""))
-            {
-                System.out.println("Do not leave the username field blank.");
-            } else
-            {
-                flag = false;
-            }
-        }
-        flag = true;
-
-        while (flag)
-        {
-            System.out.println("PASSWORD: ");
-            upassword = sc.nextLine();
-            String upasswordCheck;
-            System.out.println("Re-enter the password: ");
-            upasswordCheck = sc.nextLine();
-            if (!upassword.equals(upasswordCheck))
-            {
-                System.out.println("Enter the password again. Make sure you match both the fields.");
-            } else
-            {
-                flag = false;
-            }
-        }
-        flag = true;
-
-        System.out.println("YOU HAVE SUCCESSFULLY REGISTERED!!");
-        c = new Customer(uNAME, uphone, uemail, uage, uname, upassword);
-
-        return c;
-    }
-
-
-}
-
-public class CarRental extends RegistrationChoiceException
+public class CarRental
 {
     static Location[] locations = {new Location("VNIT", 0), new Location("Ajni Station", 1), new Location("Eternity Mall", 2), new Location("Empress Mall", 3), new Location("INOX Jaswant Tuli", 4)};
 
@@ -383,6 +71,10 @@ public class CarRental extends RegistrationChoiceException
             int registrationChoice = 0;
             System.out.print("Your choice: ");
             registrationChoice = Integer.parseInt(sc.nextLine());
+            if((registrationChoice<1||registrationChoice>2))
+            {
+            	throw new ArithmeticException("Access denied - invalid choice entered.");
+            }
             Customer currentCustomer = new Customer();
             Registration r = new Registration();
             if (registrationChoice == 1)
@@ -395,6 +87,7 @@ public class CarRental extends RegistrationChoiceException
                 userList[userCount] = currentCustomer;
                 userCount++;
             }
+            
     
             //AFTER LOGIN.
             System.out.println("We currently offer services between these locations:");
@@ -407,8 +100,16 @@ public class CarRental extends RegistrationChoiceException
             System.out.println("Enter the number corresponding to the location you would like to avail the services from.");
             System.out.print("Enter the starting location - ");
             start = Integer.parseInt(sc.nextLine());
+            if((start<1||start>5))
+            {
+            	throw new ArithmeticException("Access denied - invalid choice entered.");
+            }
             System.out.print("Enter your destination - ");
             end = Integer.parseInt(sc.nextLine());
+            if((end<1||end>5))
+            {
+            	throw new ArithmeticException("Access denied - invalid choice entered.");
+            }
             System.out.println("Would you like to add a stop on the way?");
             System.out.println("Enter y for YES or n for NO");
             String svia = sc.nextLine();
@@ -417,16 +118,6 @@ public class CarRental extends RegistrationChoiceException
                 System.out.print("Enter the location you would like to stop on the way - ");
                 via = Integer.parseInt(sc.nextLine());
             }
-            Price p = new Price();
-            double fare = 0;
-            if (via == -1)
-            {
-                fare += p.getPrice(locations[start - 1], locations[end - 1]);
-            } else
-            {
-                fare += p.getPrice(locations[start - 1], locations[via - 1]);
-                fare += p.getPrice(locations[via - 1], locations[end - 1]);
-            }
             Car currentCar = new Car();
             typechoice:
             while (true)
@@ -434,6 +125,16 @@ public class CarRental extends RegistrationChoiceException
                 System.out.println("What type of Car would you like?");
                 System.out.println("(1)Compact  (2)Sedan  (3)SUV");
                 System.out.println("Your choice - ");
+                Price p = new Price();
+                double fare = 0;
+                if (via == -1)
+                {
+                    fare += p.getPrice(locations[start - 1], locations[end - 1]);
+                } else
+                {
+                    fare += p.getPrice(locations[start - 1], locations[via - 1]);
+                    fare += p.getPrice(locations[via - 1], locations[end - 1]);
+                }
                 int vehicleTypeChoice = Integer.parseInt(sc.nextLine());
                 if (vehicleTypeChoice == 1)
                 {
@@ -557,7 +258,7 @@ public class CarRental extends RegistrationChoiceException
             }
             break;
         }
-
+        sc.close();
 
     }
 
