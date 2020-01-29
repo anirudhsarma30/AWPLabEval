@@ -305,6 +305,10 @@ public class CarRental
 		userList[1] = new Customer("Anirudh","8989898987","anirudh@gmail.com",18,"sarma30","maccBookPro");
 		userList[2] = new Customer("Rahul","8989898986","rahul@gmail.com",19,"rahul87","asusZenfone");
 		int userCount = 3;
+		Driver[] driverList= new Driver[10];
+		driverList[0]=new Driver("Rajulu","9823467543","rajulu@gmail.com","31","MH1420110062821");
+		driverList[1]=new Driver("vishal","9555895412","vishal123@gmail.com","28","AH1487654562821");
+		driverList[2]=new Driver("chandrakanth","9821389400","chandu9876@gmail.com","41","KL7656789821");
 		//Registration.
 		System.out.println("WELCOME TO CAR RENTAL!!!!!");
 		System.out.println("Would you like to:");
